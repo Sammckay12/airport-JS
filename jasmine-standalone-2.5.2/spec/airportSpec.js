@@ -9,6 +9,7 @@ describe('Aiport', function() {
   beforeEach(function() {
     airport = new Airport();
     plane = new Plane();
+    weather = new Weather();
   });
 
   it('can hold planes', function(){
@@ -29,6 +30,7 @@ describe('Aiport', function() {
 
 
     it('instructs a plane to take-off', function(){
+      spyOn(weather, 'randomizer').and.returnValue('sunny')
       airport.land(plane)
       airport.takeOff(plane)
       expect(airport.planes).not.toContain(plane)
@@ -36,6 +38,7 @@ describe('Aiport', function() {
 
      it('planes cannot take off when the weather is stomry', function(){
        airport.land(plane)
+       spyOn(weather, 'randomizer').and.returnValue('stormy')
        expect(function(){airport.takeOff(plane)}).toThrow(new Error ("Sorry"));
       });
 

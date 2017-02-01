@@ -9,12 +9,18 @@ describe('Weather', function(){
     airport = new Airport();
   });
 
-  it('knows the weather is stormy', function(){
-    // spyOn(Airport, 'weather').and.returnValue("stormy")
-    expect(weather.condition()).toEqual("stormy")
-   });
+  // it('knows the weather is stormy', function(){
+  //   // spyOn(Airport, 'weather').and.returnValue("stormy")
+  //   expect(weather.condition()).toEqual("stormy")
+  //  });
 
-   
+   describe('generates random weather', function(){
+     it('returns weather condition randomly', function(){
+        expect(weather.randomizer()).not.toBeFalsy()
+
+      });
+
+   });
 
 
 

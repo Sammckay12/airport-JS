@@ -10,7 +10,7 @@ Airport.prototype.land = function (plane) {
 };
 
 Airport.prototype.takeOff = function (plane) {
-    if (weather.condition() === "stormy") {
+    if (weather.randomizer() === "stormy") {
       throw new Error ("Sorry");
     }
       this.planes.pop(plane);
