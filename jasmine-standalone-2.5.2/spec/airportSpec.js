@@ -34,6 +34,11 @@ describe('Aiport', function() {
       expect(airport.planes).not.toContain(plane)
      });
 
+     it('planes cannot take off when the weather is stomry', function(){
+       airport.land(plane)
+       expect(function(){airport.takeOff(plane)}).toThrow(new Error ("Sorry"));
+      });
+
   });
 
 
